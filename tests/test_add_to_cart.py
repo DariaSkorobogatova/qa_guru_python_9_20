@@ -1,15 +1,19 @@
+import os
+
 from selene import browser
 from allure import step
 from demowebshop_suite.utils import post_query
-from demowebshop_suite.cart_page import cart
+from demowebshop_suite.pages.cart_page import cart
+from dotenv import load_dotenv
 
-LOGIN = 'testqaguruapi@mail.ru'
-PASSWORD = 'Password123!'
+load_dotenv()
+login = os.getenv('LOGIN')
+password = os.getenv('PASSWORD')
 
 
 def test_add_to_cart_from_catalog(base_url):
     with step("Authorize via API and get the cookie"):
-        response = post_query(f'{base_url}/login', json={"Email": LOGIN, "Password": PASSWORD}, allow_redirects=False)
+        response = post_query(f'{base_url}/login', json={"Email": login, "Password": password}, allow_redirects=False)
         cookies = response.cookies.get("NOPCOMMERCE.AUTH")
 
     with step("Add to cart"):
@@ -28,7 +32,7 @@ def test_add_to_cart_from_catalog(base_url):
 
 def test_add_to_cart_from_product_card(base_url):
     with step("Authorize via API and get the cookie"):
-        response = post_query(f'{base_url}/login', json={"Email": LOGIN, "Password": PASSWORD}, allow_redirects=False)
+        response = post_query(f'{base_url}/login', json={"Email": login, "Password": password}, allow_redirects=False)
         cookies = response.cookies.get("NOPCOMMERCE.AUTH")
 
     with step("Add to cart"):
@@ -47,7 +51,7 @@ def test_add_to_cart_from_product_card(base_url):
 
 def test_add_3_items_to_cart_from_catalog(base_url):
     with step("Authorize via API and get the cookie"):
-        response = post_query(f'{base_url}/login', json={"Email": LOGIN, "Password": PASSWORD}, allow_redirects=False)
+        response = post_query(f'{base_url}/login', json={"Email": login, "Password": password}, allow_redirects=False)
         cookies = response.cookies.get("NOPCOMMERCE.AUTH")
 
     with step("Add to cart"):
@@ -68,7 +72,7 @@ def test_add_3_items_to_cart_from_catalog(base_url):
 
 def test_same_items_to_cart_from_product_card(base_url):
     with step("Authorize via API and get the cookie"):
-        response = post_query(f'{base_url}/login', json={"Email": LOGIN, "Password": PASSWORD}, allow_redirects=False)
+        response = post_query(f'{base_url}/login', json={"Email": login, "Password": password}, allow_redirects=False)
         cookies = response.cookies.get("NOPCOMMERCE.AUTH")
 
     with step("Add to cart"):

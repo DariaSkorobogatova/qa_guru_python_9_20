@@ -30,7 +30,7 @@ class CartPage:
         return self
 
     def assert_quantity_input(self, quantity):
-        assert browser.driver.find_element(By.CLASS_NAME, 'qty-input').get_attribute('value') == quantity
+        browser.element('.qty-input').should(have.attribute('value', quantity))
         return self
 
     def delete_from_cart(self):
