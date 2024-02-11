@@ -1,0 +1,6 @@
+pytest==7.4.0
+requests==2.31.0
+jsonschema==4.21.1
+curlify==2.2.1
+selene~=2.0.0rc4
+selenium~=4.11.2
