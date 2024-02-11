@@ -1,7 +1,7 @@
 from selene import browser
 from allure import step
-from utils import post_query
-from cart_page import cart
+from demowebshop_suite.utils import post_query
+from demowebshop_suite.cart_page import cart
 
 LOGIN = 'testqaguruapi@mail.ru'
 PASSWORD = 'Password123!'
