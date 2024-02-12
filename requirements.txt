@@ -4,3 +4,5 @@ jsonschema==4.21.1
 curlify==2.2.1
 selene~=2.0.0rc4
 allure-pytest==2.13.2
+python-dotenv==1.0.0
+

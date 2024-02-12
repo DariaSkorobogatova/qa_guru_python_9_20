@@ -1,5 +1,4 @@
 from selene import browser, have
-from selenium.webdriver.common.by import By
 
 
 class CartPage:

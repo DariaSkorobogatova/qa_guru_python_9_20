@@ -1,14 +1,8 @@
-import os
-
 from selene import browser
 from allure import step
 from demowebshop_suite.utils import post_query
 from demowebshop_suite.pages.cart_page import cart
-from dotenv import load_dotenv
-
-load_dotenv()
-login = os.getenv('LOGIN')
-password = os.getenv('PASSWORD')
+from tests.conftest import login, password
 
 
 def test_add_to_cart_from_catalog(base_url):

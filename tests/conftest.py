@@ -1,7 +1,11 @@
 import pytest
 from selene import browser
-LOGIN = 'testqaguruapi@mail.ru'
-PASSWORD = 'Password123!'
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+login = os.getenv('LOGIN')
+password = os.getenv('PASSWORD')
 
 
 @pytest.fixture()
